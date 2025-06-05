@@ -1,0 +1,123 @@
+# --- Defaults ---
+
+# --- pymarl options ---
+runner: "episode" # Runs 1 env for an episode
+mac: "basic_mac" # Basic controller
+env: "iw2si" # Environment name
+env_args: {} # Arguments for the environment
+batch_size_run: 32 # Number of environments to run in parallel
+test_nepisode: 20 # Number of episodes to test for
+test_interval: 100 # Test after {} timesteps have passed
+test_greedy: True # Use greedy evaluation (if False, will set epsilon floor to 0
+log_interval: 20 # Log summary of stats after every {} timesteps
+runner_log_interval: 20 # Log runner stats (not test stats) every {} timesteps
+learner_log_interval: 20 # Log training stats every {} timesteps
+t_max: 10000 # Stop running after this many timesteps
+use_cuda: False # Use gpu by default unless it isn't available
+buffer_cpu_only: True # If true we won't keep all of the replay buffer in vram
+turn_based: False
+leader_order: True
+random_order: False
+run_name:
+
+# --- Logging options ---
+use_tensorboard: False # Log results to tensorboard
+#save_model: False # Save the models to disk
+save_model: False # Save the models to disk
+save_model_interval: 5000000 # Save models after this many timesteps
+checkpoint_path: "" # Load a checkpoint from this path
+evaluate: False # Evaluate model for test_nepisode episodes and quit (no training)
+load_step: 0 # Load model trained on this many timesteps (0 if choose max possible)
+save_replay: False # Saving the replay of the model loaded from checkpoint_path
+local_results_path: "results" # Path for local results
+write_to_scratch: False
+prototypes_count_threshold: 10
+diff_threshhold: 0.20
+data_dir: "path"
+num_tests: 3
+puffer: False # use buffer lib
+debug: False
+
+# --- RL hyperparameters ---
+gamma: 0.99
+batch_size: 32 # Number of episodes to train on
+
+share_buffer: True
+max_grad_norm: 0.5
+use_centralized_V: False
+use_cnn: True
+use_cnn_cs: True
+use_encoder: True
+central_critic: True
+optim_alpha: 0.99 # RMSProp alpha
+optim_eps: 0.00001 # RMSProp epsilon
+grad_norm_clip: 10 # Reduce magnitude of gradients above this L2 norm
+one_actor: False
+punish_step: False
+use_linear_lr_decay: False
+save_freq: 100
+load_model: False
+load_agentn: 1
+anti_coop: False
+lola: False
+ten: True
+
+
+
+
+# --- Mixers --- #
+mixer: ""
+mixer_hidden_dim: 64
+hypernet_hidden_dim: 64
+hypernet_layers: 1
+unit_dim: 1
+n_heads: 2
+state_bias: True
+weighted_head: True
+nonlinear_key: True
+mask_dead: False
+attend_reg_coef: 1
+recurrent_N: 1 # number of reccurent layers
+use_orthogonal: True
+use_recurrent_policy: True
+n_tests: 4
+weightsb: True
+use_softplus_entropy: False
+entropy_method: 'kl'
+policy_ent_coeff: 0.0001
+reward_boundary: 0.5
+obj_1lr: 1
+frames: True
+
+
+# --- Agent parameters ---
+agent: "rnn" # Default rnn agent
+rnn_hidden_dim: 64 # Size of hidden state for default rnn agent
+obs_agent_id: False # Include the agent's one_hot id in the observation
+obs_last_action: False # Include the agent's last action (one_hot) in the observation
+critic_hidden_dim: 128 # Size of hidden state for default rnn agent
+
+
+rr_buffer_size: 3200
+n_rr: 128
+rr_lr: 0.0001
+l2_regularization: 0.000001
+
+# --- Experiment running params ---
+repeat_id: 1
+label: "default_label"
+
+noise_dim: 1
+
+arch: "lstm"
+continuous_pred_factor: 0.25
+local_pred_factor: 0.0
+weighted_agg: False
+return_scaling: 1
+
+
+test_algs: False
+
+seed: 4
+
+

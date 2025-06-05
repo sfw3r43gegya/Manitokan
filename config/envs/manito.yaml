@@ -1,0 +1,37 @@
+env: iw2si
+
+env_args:
+  n_agents: &agents 2
+  size: 4
+  window: 2
+  reward_sparse: True
+  reward_local: True
+  reward_coop: False
+  credit_easy_af: False
+  episode_limit: 300
+  only_sparse: False
+  only_immediate: False
+  completion_signal: False
+  key_signal: False
+  n_keys: 1
+  p: 0.50
+  layout_name: "iw2si"
+  name: "iw2si"
+
+learner_log_interval: 20
+log_interval: 20
+runner_log_interval: 20
+t_max: 3000000000
+test_interval: 250
+test_nepisode: 25
+test_greedy: True
+action_space: 6
+state_shape: 114
+reward_shape: *agents
+done_shape: *agents
+n_actions: 6
+
+
+rnn_hidden_dim: 128 # Size of hidden state for default rnn agent
+critic_hidden_dim: 128 # Size of hidden state for default rnn agent
+
