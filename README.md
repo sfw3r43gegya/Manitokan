@@ -22,6 +22,12 @@ pip install -r requirements2.txt
 
 All hyperparemeters can be found in the config directory in the relevant .yaml file.
 
+To run the task:
+
+```bash
+python main.py
+```
+
 
 ## Citation
 ---
