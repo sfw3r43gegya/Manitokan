@@ -167,7 +167,7 @@ def run_sequential(args):
         args.batch_size_run = int(args.batch_size_run)
 
     # Default/Base scheme
-    if args.name in ["coma", "maven", "pg"] and args.env_args["name"] != "starcraft":
+    if args.name in ["coma", "maven", "pg"]:
 
         if not args.puffer:
             scheme = {
@@ -549,7 +549,7 @@ def run_sequential(args):
 
 
 
-                    if  args.test_algs and args.env_args["name"] != "starcraft":
+                    if  args.test_algs :
 
                         test_infos = []
                         test_runner.mac = runner.mac
@@ -685,38 +685,6 @@ def args_sanity_check(config, _log):
     return config
 
 
-def eval_starcraft( test_runner, last_battle_win, last_battles_game, n_tests, step ):
-    scrafts = {}
-
-    test_infos = []
-    curr_battle_win = [0 for _ in range(len(last_battles_game))]
-    curr_battles_game = [0 for _ in range(len(last_battles_game))]
-    over_seeds = []
-
-    for _ in range(n_tests):
-        episode_batch, test_info = test_runner.run(test_mode=True)
-        test_infos.append(test_info)
-
-        win_rate = []
-        for o, env_state in enumerate(test_runner.env._envs):
-            dictionary = env_state.get_stats()
-            for key in dictionary:
-                if "eval_" + key in scrafts:
-                    scrafts["eval_" + key].append(dictionary[key])
-                else:
-                    scrafts["eval_" + key] = [dictionary[key]]
-
-                if key == 'win':
-                    win_rate.append(dictionary[key])
-
-
-
-        over_seeds.append(np.median(win_rate))
-
-    for key in scrafts:
-        scrafts[key] = np.mean(scrafts[key])
-
-    return last_battle_win, last_battles_game, np.mean(over_seeds), test_infos , scrafts
 
 
 def log_data(weights, write_txt, data, args ,count):

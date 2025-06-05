@@ -146,7 +146,7 @@ class COMALearner:
 
             advantages = (q_taken - baseline).detach()
             coma_loss = - ((advantages * log_pi_taken) * mask).sum() / mask.sum()
-            print(coma_loss)
+
 
         # Optimise agents
             self.agent_optimiser.zero_grad()
@@ -162,19 +162,6 @@ class COMALearner:
             self._update_targets()
             self.last_target_update_step = self.critic_training_steps
 
-    #    if t_env - self.log_stats_t >= self.args.learner_log_interval:
-#            ts_logged = len(critic_train_stats["critic_loss"])
-          #  for key in ["critic_loss", "critic_grad_norm", "td_error_abs", "q_taken_mean", "target_mean"]:
-          #      self.logger.log_stat(key, sum(critic_train_stats[key])/ts_logged, t_env)
-
-          #  self.logger.log_stat("advantage_mean", (advantages * mask).sum().item() / mask.sum().item(), t_env)
-          #  self.logger.log_stat("actor_loss", coma_loss.item(), t_env)
-          ##  self.logger.log_stat("pi_max", (pi.max(dim=1)[0] * mask).sum().item() / mask.sum().item(), t_env)
-         #   if new_rewards is not None:
-         #       self.logger.log_stat("redist_return_mean", new_rewards.sum().item()/self.args.batch_size, t_env)
-         #   if redist_steps is not None:
-         #       self.logger.log_stat("redist_steps", redist_steps, t_env)
-         #   self.log_stats_t = t_env
 
         critic_train_stats["base_line"] = -baseline.sum()/mask.sum()
         critic_train_stats["actor_loss"] = coma_loss.item()

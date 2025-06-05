@@ -1,0 +1,10 @@
+huggingface-hub==0.11.0
+tokenizers
+transformers
+datasets==2.13.1
+dill==0.3.6
+protobuf==3.20.3
+pufferlib
+tensorflow
+tensorflow-estimator
+opencv-python
