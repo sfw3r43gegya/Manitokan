@@ -13,7 +13,7 @@ from .utils import (LinearDecayScheduler, MultiStepScheduler,
                                soft_target_update)
 
 
-class QMixAgent(BaseAgent): # can use QATTEN, QMIX and VDN mixers
+class QMixAgent(BaseAgent): # can use, QMIX and VDN mixers
     """QMIX algorithm
     Args:
         actor_model (nn.Model): agents' local q network for decision making.
@@ -364,17 +364,9 @@ class QMixAgent(BaseAgent): # can use QATTEN, QMIX and VDN mixers
         # Mixing network
         # mix_net, input: ([Q1, Q2, ...], state), output: Q_total
         if self.mixer_model is not None:
-            if self.mixer_model.name == "qatten":
-                chosen_action_global_qs, chosen_attend_mag_regs, chosen_head_entropies = self.mixer_model(
-                chosen_action_local_qs, states = obs_episode[:, :-1, :,:,:].reshape( self.num_agents,
-                                                                                 obs_episode[:, :-1, :,:,:].shape[1],
-                                                                                self.batch_size*self.sample_size, -1))
-                target_global_max_qs, target_attend_mag_regs, target_head_entropies = self.target_mixer_model(
-                target_local_max_qs, states = obs_episode[:, 1:, :,:,:].reshape( self.num_agents,
-                                                                                 obs_episode[:, :-1, :,:,:].shape[1],
-                                                                                self.batch_size*self.sample_size, -1))
 
-            elif self.mixer_model.name == "qtrans":
+
+            if self.mixer_model.name == "qtrans":
                 chosen_action_global_qs,  chosen_v_outputs = self.mixer_model(
                 episode_data, hidden_states = torch.cat(hid_states),
                     batch_size=self.sample_size*self.batch_size,
