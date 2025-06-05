@@ -28,6 +28,11 @@ To run the task:
 python main.py
 ```
 
+Arguments can be pass through main.py as well
+
+```bash
+python main.py --config="mappo" --env-config="manito"
+```
 
 ## Citation
 ---
