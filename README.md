@@ -7,8 +7,16 @@ This repository implements Manitokan task as detailed in the paper: https://arxi
 ## Setup
 ---
 
-```python
+```bash
 python3.9 -m venv env_name
+```
+
+```bash
+pip install -r requirements.txt
+```
+
+```bash
+pip install -r requirements2.txt
 ```
 
 
