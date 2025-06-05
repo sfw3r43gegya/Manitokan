@@ -7,6 +7,9 @@ This repository implements Manitokan task as detailed in the paper: https://arxi
 ## Setup
 ---
 
+```python
+python3.9 -m venv env_name
+```
 
 
 ## Citation
