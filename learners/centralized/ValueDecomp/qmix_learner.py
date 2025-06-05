@@ -12,6 +12,8 @@ from .utils import (LinearDecayScheduler, MultiStepScheduler,
                     hard_target_update,
                                soft_target_update)
 
+# https://github.com/jianzhnie/deep-marl-toolkit/tree/main for qmix, vdn, qtran
+# https://github.com/WentseChen/Soft-QMIX/blob/master/src/learners/nq_learner.py entropy regularization
 
 class QMixAgent(BaseAgent): # can use, QMIX and VDN mixers
     """QMIX algorithm
