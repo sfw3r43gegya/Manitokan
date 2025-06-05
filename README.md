@@ -34,6 +34,8 @@ Arguments can be pass through main.py as well
 python main.py --config="mappo" --env-config="manito"
 ```
 
+Please reach out with any implementation issues.
+
 ## Citation
 ---
 ```bibtex
