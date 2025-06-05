@@ -9,7 +9,7 @@ import inspect
 import pufferlib
 import pufferlib.spaces
 from pufferlib import utils, exceptions
-from envs.PufferLib_2.pufferlib.environment import set_buffers
+from src_minigrid.envs.PufferLib_2.pufferlib.environment import set_buffers
 from pufferlib.spaces import Discrete, Tuple, Dict
 import scipy.spatial.distance as dist
 
