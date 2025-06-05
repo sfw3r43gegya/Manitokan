@@ -6,7 +6,7 @@ import os
 
 img_array = []
 
-a = sorted(glob.glob('/Users/danemalenfant/PycharmProjects/agent-time-attention-main/src_minigrid/frames/*.png'), key=os.path.getmtime)
+a = sorted(glob.glob('path-to-file/agent-time-attention-main/src_minigrid/frames/*.png'), key=os.path.getmtime)
 
 print(a)
 a = sorted(a, key=lambda x:float(re.findall("(\d+)",x)[0]))
