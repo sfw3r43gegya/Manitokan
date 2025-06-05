@@ -7,7 +7,9 @@ This repository implements Manitokan task as detailed in the paper: https://arxi
 ## Setup
 ---
 
-##Citation
+
+
+## Citation
 ---
 ```bibtex
 @article{malenfant2025challenge,
