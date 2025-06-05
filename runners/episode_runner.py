@@ -346,13 +346,6 @@ class EpisodeRunner:
                                         self.statistics_dict["key_first"][i][j] = 1
 
 
-
-
-
-
-
-
-
                     else:
                         aval = None
 
@@ -396,9 +389,6 @@ class EpisodeRunner:
                     if  self.args.env_args["name"]  == "iw2si":
                         had_key = [[False if x is not None else True for x in l1] for l1 in keys_carried]
 
-
-                           # self.statistics_dict["key_dropped"][i] =  self.statistics_dict["key_dropped"][i]/l if l != 0 else self.statistics_dict["key_dropped"][i]
-
                     value = np.array(_t2n(value))
                     action_log_prob = np.array(_t2n(action_log_prob))
                     rnn_state = np.array(_t2n(rnn_state))
@@ -420,7 +410,6 @@ class EpisodeRunner:
                         obs = np.array([self.env.get_obs()]).squeeze(0).swapaxes(0, 1)
 
 
-
                     masks = torch.FloatTensor([[0.0] if done_ else [1.0] for done_ in terminated])
                     masks = masks.repeat(1,self.n_agents).unsqueeze(2)
                     bad_masks = masks
@@ -433,8 +422,6 @@ class EpisodeRunner:
                         share_obs = np.expand_dims(share_obs, 1).repeat(self.n_agents, axis=1)
                     else:
                         share_obs = obs
-
-
 
 
                     data = (share_obs, obs.squeeze() if self.n_agents > 1 else obs.squeeze(1) , rnn_state, rnn_state_critic,
@@ -747,7 +734,7 @@ class EpisodeRunner:
 
 
 
-            if not test_mode and self.args.env_args["name"]  == "iw2si":
+            if not test_mode and self.args.env_args["name"]  == "iw2si" and self.args.frames:
 
                   if not self.env.puffer:
                     wtfaid = self.env._envs[0].grid.render(tile_size=32,
