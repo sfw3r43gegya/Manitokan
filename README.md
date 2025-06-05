@@ -6,7 +6,7 @@ This repository implements Manitokan task as detailed in the paper: https://arxi
 
 ## Setup
 ---
-
+All experiments used python3.9
 ```bash
 python3.9 -m venv env_name
 ```
@@ -14,10 +14,13 @@ python3.9 -m venv env_name
 ```bash
 pip install -r requirements.txt
 ```
+Another requirements file helps avoid package conflicts.
 
 ```bash
 pip install -r requirements2.txt
 ```
+
+All hyperparemeters can be found in the config directory in the relevant .yaml file.
 
 
 ## Citation
