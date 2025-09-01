@@ -2,7 +2,7 @@
 ------
 ## Dane Malenfant, Blake Aaron Richards 2025
 
-This repository implements Manitokan task as detailed in the paper: https://arxiv.org/pdf/2505.20579 as well as the models in the paper.
+(Still under construction) This repository implements Manitokan task as detailed in the paper: https://arxiv.org/pdf/2505.20579 as well as the models in the paper.
 
 ## Setup
 ---
